@@ -25,11 +25,11 @@ public class DivideAndConquerMultiplication implements MultBehav {
         // Conquer
         Polynom Y = this.multiply(A0.add(A1), B0.add(B1));
         Polynom U = this.multiply(A0, B0);
-        Polynom Z = this.multiply(A1, B1).promote(p2.coef.size()/2*2);
+        Polynom Z = this.multiply(A1, B1);
         
         // Merge
-        Polynom V = Y.subtract(U).subtract(Z).promote(A0.coef.size());
-		return U.add(V).add(Z);
+        Polynom V = Y.subtract(U).subtract(Z);
+		return U.add(V.promote(A0.coef.size())).add(Z.promote(p2.coef.size()/2*2));
 	}
 
     private void divide(Polynom p, Polynom p1, Polynom p2){
