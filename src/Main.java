@@ -33,6 +33,7 @@ public class Main{
         System.out.println("Multiplication using Bruteforce algorithm");
         p3.print();
         System.out.println("Time elapsed: " + (endTime-startTime)/1000000 + " ms");
+        System.out.println("Total operations: " + p3.multBehav.ops);
         System.out.println();
 
         startTime = System.nanoTime();
@@ -41,6 +42,7 @@ public class Main{
         System.out.println("Multiplication using Divide and Conquer algorithm");
         p4.print();
         System.out.println("Time elapsed: " + (endTime-startTime)/1000000 + " ms");
+        System.out.println("Total operations: " + p4.multBehav.ops);
         System.out.println();
 	}
 }

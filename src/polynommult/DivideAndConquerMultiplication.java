@@ -3,11 +3,17 @@ package polynommult;
 import java.util.Map;
 import java.util.Scanner;
 
-public class DivideAndConquerMultiplication implements MultBehav {
-	public Polynom multiply(Polynom p1, Polynom p2){
+public class DivideAndConquerMultiplication extends MultBehav {
+    public DivideAndConquerMultiplication(){
+        this(0);
+    }
+    public      DivideAndConquerMultiplication(int prevOps){
+        this.ops = prevOps;
+    }
+    public Polynom multiply(Polynom p1, Polynom p2){
         // Basis
         if(p1.coef.size() == 1){
-            p1.multBehav = new BruteforceMultiplication();
+            p1.multBehav = new BruteforceMultiplication(p1.multBehav.ops);
             return p1.multiply(p2);
         }
         
@@ -29,7 +35,9 @@ public class DivideAndConquerMultiplication implements MultBehav {
         
         // Merge
         Polynom V = Y.subtract(U).subtract(Z);
-		return U.add(V.promote(A0.coef.size())).add(Z.promote(p2.coef.size()/2*2));
+		Polynom Ans = U.add(V.promote(A0.coef.size())).add(Z.promote(p2.coef.size()/2*2));
+        Ans.multBehav.ops = Y.multBehav.ops + U.multBehav.ops + Z.multBehav.ops + U.coef.size() + Z.coef.size() + V.coef.size() + Z.coef.size();
+        return Ans;
 	}
 
     private void divide(Polynom p, Polynom p1, Polynom p2){

@@ -7,8 +7,8 @@ import java.util.Random;
 public class Polynom{
     private static final int MAX_ORDE = 5;
     private static final int MAX_COEF = 10;
-	TreeMap<Integer, Integer> coef;
-    MultBehav multBehav;
+	protected TreeMap<Integer, Integer> coef;
+    public MultBehav multBehav;
 
 	public Polynom(MultBehav multBehav) {
 		this.coef = new TreeMap<Integer, Integer>();
