@@ -7,9 +7,11 @@ public class DivideAndConquerMultiplication extends MultBehav {
     public DivideAndConquerMultiplication(){
         this(0);
     }
-    public      DivideAndConquerMultiplication(int prevOps){
+    
+    public DivideAndConquerMultiplication(int prevOps){
         this.ops = prevOps;
     }
+
     public Polynom multiply(Polynom p1, Polynom p2){
         // Basis
         if(p1.coef.size() == 1){

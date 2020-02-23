@@ -54,9 +54,11 @@ public class Polynom{
             switch(op){
                 case "+":
                     coef += term.getValue();
+                    p.multBehav.ops++;
                     break;
                 case "-":
                     coef -= term.getValue();
+                    p.multBehav.ops++;
                     break;
             }
             p.coef.put(degree, coef);
@@ -67,9 +69,9 @@ public class Polynom{
     // generate random coef of polynom orde n
     public void generateRandomPolynom(int n){
         Random rand = new Random();
-        for(; n > 0; n--){
+        for(; n >= 0; n--){
             int coef = rand.nextInt(MAX_COEF-1)+1;
-            this.setTerm(n-1, coef);
+            this.setTerm(n, coef);
         }
     }
 

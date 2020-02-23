@@ -7,6 +7,7 @@ Simple polynom multiplication library using bruteforce and divide and conquer al
 ## Compiling
 1. open cmd/terminal on ./src directory
 1. `jar cvf polynommult.jar polynommult/*.java`
+1. `javac Main.java`
 
 ## Running
 1. compile files on ./src or open cmd/terminal on ./bin directory
